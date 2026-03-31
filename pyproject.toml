@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openenv-websec-repair-env"
+version = "0.1.0"
+description = "Deterministic OpenEnv environment for web vulnerability repair tasks"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110.0",
+    "openenv-core[core]>=0.2.1",
+    "uvicorn>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+train = [
+    "torch>=2.0.0",
+    "transformers>=4.36.0",
+    "peft>=0.7.0",
+    "datasets>=2.14.0",
+    "accelerate>=0.24.0",
+    "bitsandbytes>=0.41.0",
+    "huggingface-hub>=0.17.0",
+]
+visualize = [
+    "matplotlib>=3.7.0",
+]
+
+[project.scripts]
+server = "websec_repair_env.server.app:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = ["websec_repair_env", "websec_repair_env.server", "websec_repair_env.training"]
+package-dir = { "websec_repair_env" = ".", "websec_repair_env.server" = "server", "websec_repair_env.training" = "training" }
+

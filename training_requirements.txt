@@ -1,0 +1,24 @@
+# Training dependencies for QLoRA fine-tuning
+# Install with: pip install -r training_requirements.txt
+
+# Core ML libraries
+torch>=2.0.0
+transformers>=4.44.0,<5.0.0
+peft>=0.12.0,<1.0.0
+datasets>=2.19.0,<4.0.0
+accelerate>=0.30.0,<1.0.0
+
+# Quantization
+bitsandbytes>=0.41.0
+
+# Optional: For Hugging Face Hub integration
+huggingface-hub>=0.24.0,<1.0.0
+
+# Optional: Monitoring
+tensorboard>=2.14.0
+wandb>=0.15.0
+
+# Development
+black>=23.0.0
+isort>=5.13.0
+mypy>=1.7.0

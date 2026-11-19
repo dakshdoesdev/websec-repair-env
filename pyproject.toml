@@ -11,6 +11,8 @@ requires-python = ">=3.10"
 dependencies = [
     "fastapi>=0.110.0",
     "openenv-core[core]>=0.2.1",
+    "openai>=1.0.0",
+    "rich>=13.0.0",
     "uvicorn>=0.27.0",
 ]
 
@@ -27,15 +29,13 @@ train = [
     "bitsandbytes>=0.41.0",
     "huggingface-hub>=0.17.0",
 ]
-visualize = [
-    "matplotlib>=3.7.0",
-]
 
 [project.scripts]
 server = "websec_repair_env.server.app:main"
+baseline = "websec_repair_env.inference:main"
+orchestrate = "websec_repair_env.orchestrate:main"
 
 [tool.setuptools]
 include-package-data = true
-packages = ["websec_repair_env", "websec_repair_env.server", "websec_repair_env.training"]
-package-dir = { "websec_repair_env" = ".", "websec_repair_env.server" = "server", "websec_repair_env.training" = "training" }
-
+packages = ["websec_repair_env", "websec_repair_env.server", "websec_repair_env.training", "websec_repair_env.orchestration"]
+package-dir = { "websec_repair_env" = ".", "websec_repair_env.server" = "server", "websec_repair_env.training" = "training", "websec_repair_env.orchestration" = "orchestration" }

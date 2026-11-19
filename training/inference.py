@@ -157,6 +157,7 @@ class WebSecRepairAgent:
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.model_dir / "tokenizer",
             trust_remote_code=True,
+            local_files_only=True,
         )
         self.tokenizer.pad_token = self.tokenizer.eos_token
 
@@ -164,6 +165,7 @@ class WebSecRepairAgent:
             self.model_dir / "adapter",
             device_map=device,
             torch_dtype=torch.bfloat16,
+            local_files_only=True,
         )
 
         print(f"✓ Model loaded on {device}")
